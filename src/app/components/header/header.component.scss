@@ -1,0 +1,60 @@
+.header-class {
+    background-color: #fff;
+    padding: 20px 5%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.logo {
+    height: 90px;
+    margin-right: 30px;
+}
+
+.title {
+    align-items: center;
+    font-size: 30px; 
+    font-weight: bold;
+    margin-right:800px;
+    margin-top: 15px;
+}
+
+.nav-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0; 
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu li {
+    margin: 0 15px;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.download-icon {
+    height: 90px;
+}
+
+.burger-menu {
+    margin-right: 15px;
+}
+
+.button {
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}

@@ -1,0 +1,42 @@
+<h2 mat-dialog-title>Update Car</h2>
+<mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="data.name" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Model</mat-label>
+    <input matInput [(ngModel)]="data.model" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Year</mat-label>
+    <input matInput [(ngModel)]="data.year" type="number" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Price</mat-label>
+    <input matInput [(ngModel)]="data.price" type="number" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Color</mat-label>
+    <input matInput [(ngModel)]="data.color" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Description</mat-label>
+    <textarea matInput [(ngModel)]="data.description"></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Category</mat-label>
+    <input matInput [(ngModel)]="data.category" required />
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onNoClick()" class="cancel-button">Cancel</button>
+  <button mat-button color="primary" (click)="updateCar()" class="update-button">Update</button>
+</mat-dialog-actions>

@@ -1,0 +1,73 @@
+.register-title {
+    background-color: #3f51b5;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.register-content {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-field {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.mat-form-field mat-label {
+    color: #3f51b5;
+}
+
+.register-actions {
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ddd;
+    border-radius: 0 0 10px 10px;
+}
+
+.cancel-button {
+    background-color: #ff5722;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.cancel-button:hover {
+    background-color: #e64a19;
+    transform: scale(1.05);
+}
+
+.register-button {
+    background-color: #4caf50;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.register-button:hover {
+    background-color: #388e3c;
+    transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+    .register-content {
+        padding: 15px;
+    }
+
+    .form-field {
+        margin-bottom: 10px;
+    }
+
+    .cancel-button, .register-button {
+        width: 100%;
+        margin: 5px 0;
+    }
+}

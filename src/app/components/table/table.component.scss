@@ -1,0 +1,69 @@
+.table-container {
+  width: 100%;
+  background-color: #FFF8E1; /* Fondo amarillo claro */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.filter-field {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th.mat-header-cell {
+  background-color: #FFA000; /* Encabezado en naranja oscuro */
+  color: white;
+  font-weight: bold;
+  text-align: left;
+  padding: 12px;
+}
+
+td.mat-cell {
+  padding: 12px;
+  border-bottom: 1px solid #FFECB3; /* Línea de separación en amarillo claro */
+  transition: background-color 0.3s;
+}
+
+tr.mat-row:hover {
+  background-color: #FFEB3B; /* Resaltar la fila en un amarillo suave */
+}
+
+.action-button {
+  margin-right: 5px;
+  transition: background-color 0.3s;
+}
+
+.update-button {
+  background-color: #FFA726; /* Botón de actualización en naranja */
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+.update-button:hover {
+  background-color: #FB8C00; /* Hover en naranja más oscuro */
+}
+
+.delete-button {
+  background-color: #E57373; /* Botón de eliminación en rojo claro */
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+.delete-button:hover {
+  background-color: #D32F2F; /* Hover en rojo oscuro */
+}
+
+.mat-paginator {
+  background-color: #FFF8E1; /* Paginador en amarillo claro */
+  border-radius: 4px;
+  padding: 10px;
+}
