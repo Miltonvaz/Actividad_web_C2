@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     padding: 30px;
-    background-color: #FFC107; /* Fondo amarillo */
+    background-color: #FFC107;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     margin: 20px;
@@ -21,7 +21,7 @@
 .title {
     font-size: 32px;
     font-weight: 700;
-    color: #212121; /* Texto oscuro para resaltar sobre el fondo */
+    color: #212121;
     margin-bottom: 10px;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
@@ -32,18 +32,18 @@
     font-size: 16px;
     padding: 10px;
     border-radius: 5px;
-    background-color: #1976d2; /* Azul oscuro para que combine con la tabla */
+    background-color: #1976d2;
     color: white;
     transition: background-color 0.3s ease;
 }
 
 .add-car-button:hover {
-    background-color: #0056b3; /* Azul más oscuro en hover */
+    background-color: #0056b3;
 }
 
 .table-section {
     width: 100%;
-    background-color: #FFF8E1; /* Fondo de tabla en amarillo claro */
+    background-color: #FFF8E1;
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);

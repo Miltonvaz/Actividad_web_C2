@@ -1,6 +1,6 @@
 .table-container {
   width: 100%;
-  background-color: #FFF8E1; /* Fondo amarillo claro */
+  background-color: #FFF8E1; 
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   overflow: hidden;
@@ -18,7 +18,7 @@ table {
 }
 
 th.mat-header-cell {
-  background-color: #FFA000; /* Encabezado en naranja oscuro */
+  background-color: #FFA000; 
   color: white;
   font-weight: bold;
   text-align: left;
@@ -27,12 +27,12 @@ th.mat-header-cell {
 
 td.mat-cell {
   padding: 12px;
-  border-bottom: 1px solid #FFECB3; /* Línea de separación en amarillo claro */
+  border-bottom: 1px solid #FFECB3; 
   transition: background-color 0.3s;
 }
 
 tr.mat-row:hover {
-  background-color: #FFEB3B; /* Resaltar la fila en un amarillo suave */
+  background-color: #FFEB3B; 
 }
 
 .action-button {
@@ -41,29 +41,29 @@ tr.mat-row:hover {
 }
 
 .update-button {
-  background-color: #FFA726; /* Botón de actualización en naranja */
+  background-color: #FFA726; 
   color: white;
   padding: 8px 16px;
   border-radius: 4px;
 }
 
 .update-button:hover {
-  background-color: #FB8C00; /* Hover en naranja más oscuro */
+  background-color: #FB8C00; 
 }
 
 .delete-button {
-  background-color: #E57373; /* Botón de eliminación en rojo claro */
+  background-color: #E57373; 
   color: white;
   padding: 8px 16px;
   border-radius: 4px;
 }
 
 .delete-button:hover {
-  background-color: #D32F2F; /* Hover en rojo oscuro */
+  background-color: #D32F2F;
 }
 
 .mat-paginator {
-  background-color: #FFF8E1; /* Paginador en amarillo claro */
+  background-color: #FFF8E1;
   border-radius: 4px;
   padding: 10px;
 }
