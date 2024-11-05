@@ -2,13 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ApiService } from './service/api.service';
 import { Users } from './models/users'; 
-import { LoginComponent } from './components/login/login.component';
 import { TableComponent } from './components/table/table.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LoginComponent, TableComponent],
+  imports: [RouterOutlet, TableComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

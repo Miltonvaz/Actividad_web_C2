@@ -1,10 +1,10 @@
 .table-container {
   width: 100%;
-  background-color: #FFF8E1; 
+  background-color: #ffffff; 
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
+  overflow: hidden;
 }
 
 .filter-field {
@@ -19,14 +19,18 @@ table {
 
 th.mat-header-cell {
   background-color: #FFA000; 
-  color: white;
+  color: #222;
   font-weight: bold;
-  text-align: left;
-  padding: 12px;
+  padding: 16px;
+  font-size: 1.1em;
+  text-align: center;
 }
 
 td.mat-cell {
-  padding: 12px;
+  background-color: #fff;
+  color: #444;
+  padding: 16px;
+  text-align: center;
   border-bottom: 1px solid #FFECB3; 
   transition: background-color 0.3s;
 }
@@ -35,35 +39,48 @@ tr.mat-row:hover {
   background-color: #FFEB3B; 
 }
 
-.action-button {
-  margin-right: 5px;
-  transition: background-color 0.3s;
+.mat-icon {
+  cursor: pointer;
+  transition: transform 0.2s;
+  color: #ff4757; 
 }
 
-.update-button {
-  background-color: #FFA726; 
-  color: white;
+.mat-icon:hover {
+  transform: scale(1.2);
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 8px 16px;
-  border-radius: 4px;
-}
-
-.update-button:hover {
-  background-color: #FB8C00; 
-}
-
-.delete-button {
-  background-color: #E57373; 
+  border-radius: 5px;
+  background-color: #ffb700; 
   color: white;
-  padding: 8px 16px;
-  border-radius: 4px;
+  border: none;
+  transition: background-color 0.3s, transform 0.2s; 
+  font-size: 0.9em;
 }
 
-.delete-button:hover {
-  background-color: #D32F2F;
+button:hover {
+  background-color: #ff9000;
+  transform: translateY(-2px);
 }
 
 .mat-paginator {
-  background-color: #FFF8E1;
-  border-radius: 4px;
-  padding: 10px;
+  background-color: #ffcc00; 
+  border-radius: 8px;
+  padding: 8px;
+  margin-top: 20px;
+}
+
+.mat-paginator .mat-button {
+  color: #333;
+  font-weight: bold;
+}
+
+.mat-no-data {
+  text-align: center;
+  color: #ff4757;
+  font-size: 1.1em;
 }

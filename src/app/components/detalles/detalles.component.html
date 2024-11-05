@@ -1,0 +1,36 @@
+<app-header></app-header>
+
+<div *ngIf="pokemon" class="pokemon-details">
+    <h2 class="pokemon-title">{{ pokemon.name | uppercase }}</h2>
+    
+    <div class="pokemon-images">
+        <h3>Imágenes</h3>
+        <div class="image-gallery">
+            <img *ngFor="let img of pokemonImages" [src]="img" alt="Imagen del Pokémon" class="pokemon-image" />
+        </div>
+    </div>
+    
+    <div class="pokemon-abilities">
+        <h3>Habilidades</h3>
+        <ul>
+            <li *ngFor="let ability of pokemon.abilities ?? []" class="ability-item">
+                {{ ability.ability.name | titlecase }}
+            </li>
+        </ul>
+    </div>
+    
+    <div class="pokemon-games">
+        <h3>Juegos</h3>
+        <ul>
+            <li *ngFor="let game of pokemon.game_indices ?? []" class="game-item">
+                {{ game.version.name | titlecase }}
+            </li>
+        </ul>
+    </div>
+</div>
+  
+<div *ngIf="!pokemon" class="loading-message">
+    <p>Cargando detalles del Pokémon...</p>
+</div>
+
+<app-footer></app-footer>

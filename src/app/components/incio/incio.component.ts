@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
-import { MainComponent } from '../main/main.component';
+import { TableComponent } from '../table/table.component';
 @Component({
   selector: 'app-incio',
   standalone: true,
-  imports: [HeaderComponent,FooterComponent,MainComponent],
+  imports: [HeaderComponent,FooterComponent,TableComponent],
   templateUrl: './incio.component.html',
   styleUrl: './incio.component.scss'
 })

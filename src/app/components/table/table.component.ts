@@ -1,17 +1,16 @@
-import { AfterViewInit, Component, ViewChild, Input } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
-import { CarUpdateModalComponent } from '../car-update-modal/car-update-modal.component';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
-import { Cars } from '../../models/cars';
-import { ApiCarsService } from '../../service/api-cars.service';
-import { MatDialog } from '@angular/material/dialog';
-import { CurrencyPipe } from '@angular/common';
-import { NumberAbbreviationPipe } from '../../pipes/number-abbreviation-pipe/number-abbreviation-pipe.component';
+import { MatIconModule } from '@angular/material/icon'; 
+import { ApiPokemonService } from '../../service/api-pokemon.service';
+import { Pokemon } from '../../models/pokemon';
+import { Router } from '@angular/router'; 
 import { UpperCasePipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
+import { PipePokemonPipe } from '../../pipes/pipe-pokemon.pipe';
 @Component({
   selector: 'app-table',
   standalone: true,
@@ -20,26 +19,25 @@ import { UpperCasePipe } from '@angular/common';
     MatInputModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule,
-    CarUpdateModalComponent,
-    ConfirmationDialogComponent, 
-    CurrencyPipe,
-    NumberAbbreviationPipe,
-    UpperCasePipe
+    MatPaginatorModule, 
+    MatIconModule,
+    UpperCasePipe, 
+    CommonModule,
+    PipePokemonPipe 
   ],
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
 })
 export class TableComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'model', 'year', 'price', 'color', 'description', 'category', 'actions'];
-  dataSource: MatTableDataSource<Cars> = new MatTableDataSource();
-  cars: Cars[] = [];
+  displayedColumns: string[] = ['name', 'actions'];
+  dataSource: MatTableDataSource<Pokemon> = new MatTableDataSource();
+  favoritePokemons = new Set<string>(); 
 
   @ViewChild(MatPaginator) paginator?: MatPaginator; 
   @ViewChild(MatSort) sort?: MatSort; 
 
-  constructor(private apiService: ApiCarsService, private dialog: MatDialog) {
-    this.loadCars();
+  constructor(private apiService: ApiPokemonService, private router: Router) { 
+    this.loadPokemon();
   }
 
   ngAfterViewInit() {
@@ -51,61 +49,14 @@ export class TableComponent implements AfterViewInit {
     }
   }
 
-  loadCars(): void {
-    this.apiService.getCars().subscribe({
-      next: (response: Cars[]) => {
-        this.cars = response; 
-        this.dataSource.data = this.cars; 
-        this.dataSource.filter = '';
-      },
-      error: (err) => {
-        console.error('Error retrieving cars data:', err);
-      },
-    });
-  }
-
-  @Input() set carAdded(car: Cars) {
-    if (car) {
-      this.dataSource.data = [...this.dataSource.data, car]; 
-    }
-  }
-
-  updateCar(row: Cars): void {
-    this.openUpdateCarModal(row);
-  }
-
-  openUpdateCarModal(car: Cars): void {
-    const dialogRef = this.dialog.open(CarUpdateModalComponent, {
-      data: car,
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.loadCars(); 
-      }
-    });
-  }
-  
-  confirmDelete(id: number): void {
-    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-      data: { message: '¿Estás seguro de que deseas eliminar este coche?' }
-    });
+  loadPokemon(): void {
     
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.deleteCar(id);
-      }
-    });
-  }
-
-  deleteCar(id: number) {
-    this.apiService.deleteCar(id).subscribe({
-      next: () => {
-        console.log('Car data deleted successfully');
-        this.loadCars(); 
+    this.apiService.getPokemonList().subscribe({
+      next: (response: Pokemon[]) => { 
+        this.dataSource.data = response; 
       },
-      error: (err) => {
-        console.error('Error deleting car data:', err);
+      error: (err: any) => {
+        console.error('Error retrieving Pokémon data:', err);
       },
     });
   }
@@ -113,25 +64,23 @@ export class TableComponent implements AfterViewInit {
   applyFilter(event: KeyboardEvent): void {
     const input = event.target as HTMLInputElement;
     const filterValue = input.value.trim().toLowerCase();
+    this.dataSource.filter = filterValue;
+  }
 
-    if (filterValue === '') {
-      this.loadCars(); 
-      return;
-    }
+  viewDetails(row: Pokemon): void {
+    const url = row.url; 
+    this.router.navigate(['/detalles', { url }]);
+  }
 
-    if (!isNaN(Number(filterValue))) {
-      const carId = Number(filterValue);
-      this.apiService.getCarById(carId).subscribe(
-        car => {
-          this.dataSource.data = [car];
-        },
-        error => {
-          console.error('Error fetching car by ID', error);
-          this.dataSource.data = []; 
-        }
-      );
+  toggleFavorite(row: Pokemon): void {
+    if (this.favoritePokemons.has(row.url!)) {
+      this.favoritePokemons.delete(row.url!);
     } else {
-      this.dataSource.filter = filterValue;
+      this.favoritePokemons.add(row.url!);
     }
+  }
+
+  isFavorite(row: Pokemon): boolean {
+    return this.favoritePokemons.has(row.url!);
   }
 }
